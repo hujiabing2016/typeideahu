@@ -31,10 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'typeidea',
     'blog',
     'config',
-    'comment',
-    
+    'comment',   
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,21 +55,37 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'typeidea.urls'
 
+THEME = 'bootstrap'
 TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
+    {'BACKEND':'django.template.backends.django.DjangoTemplates',
+     'DIRS':[os.path.join(BASE_DIR,'themes',THEME,'templates')],
+     'APP_DIRS':True,
+     'OPTIONS':{
+         'context_processors':[
+             'django.template.context_processors.debug',
+             'django.template.context_processors.request',
+             'django.contrib.auth.context_processors.auth',
+             'django.contrib.messages.context_processors.messages',
+             ]        
+         }  
+     }   
+    ]
+
+# TEMPLATES = [
+#     {
+#         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+#         'DIRS': [],
+#         'APP_DIRS': True,
+#         'OPTIONS': {
+#             'context_processors': [
+#                 'django.template.context_processors.debug',
+#                 'django.template.context_processors.request',
+#                 'django.contrib.auth.context_processors.auth',
+#                 'django.contrib.messages.context_processors.messages',
+#             ],
+#         },
+#     },
+# ]
 
 WSGI_APPLICATION = 'typeidea.wsgi.application'
 
@@ -107,9 +123,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
